@@ -1,12 +1,14 @@
 import express from "express";
+import dotenv from "dotenv";
+dotenv.config();
 import product from "./data/product.js";
-const port = 5000;
+const port = process.env.PORT || 5000;
 const app = express();
 
 app.get("/", (req, res) => {
   res.send("Server is running....");
 });
-app.get("/api/product", (req, res) => {
+app.get("/api/products", (req, res) => {
   res.json(product);
 });
 
